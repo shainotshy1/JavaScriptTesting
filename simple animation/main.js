@@ -16,7 +16,7 @@ function init(){
     context = canvas.getContext("2d");
 
     radius = 12;
-    velocity = 5;
+    velocity = 6;
     colors = ["orange","blue","red","green","yellow"];
     /*x = y = 100;    // initial x,y canvas location
     dx = dy = velocity;*/    // velocity in x and y directions
@@ -39,8 +39,8 @@ function createBalls(ballAmount){
     let xPos = radius+Math.random()*(canvas.width-2*radius);
     let yPos = radius+Math.random()*(canvas.height-2*radius);
 
-    let dxVal = (1-2*Math.round(Math.random()))*velocity;
-    let dyVal = (1-2*Math.round(Math.random()))*velocity;
+    let dxVal = (1-2*Math.round(Math.random()))*(Math.floor((velocity/2)*Math.random())+velocity/2);
+    let dyVal = (1-2*Math.round(Math.random()))*(Math.floor((velocity-1)*Math.random())+velocity/2);
     let ballColor = colors[Math.floor(Math.random()*colors.length)];
 
     xArr.push(xPos);
