@@ -1,5 +1,3 @@
-
-// wait for the page to finish loading with init as the callback
 window.addEventListener("load", init);
 
 class Ball{
@@ -16,7 +14,12 @@ class Ball{
     this.y+=this.dy;
   }
   draw = function(){
-    circle(this.x,this.y,this.r,this.color);
+    context.beginPath();
+    context.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+    context.strokeStyle = "black";  // color to fill
+    context.fillStyle = this.color;     // color to stroke
+    context.fill();     // render the fill
+    context.stroke();
   }
   checkEdges = function(){
     if(this.x<=this.r||this.x>=canvas.width-this.r){
@@ -82,15 +85,4 @@ function update() {
       balls[i].update();
       balls[i].draw();
     }
-}
-//makes a circle at a position with a certain colors
-function circle(xPos,yPos,r,color){
-  // create the circle path
-  context.beginPath();    // clear old path
-  // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arc
-  context.arc(xPos, yPos, r, 0, 2 * Math.PI);
-  context.strokeStyle = "black";  // color to fill
-  context.fillStyle = color;     // color to stroke
-  context.fill();     // render the fill
-  context.stroke();   // render the stroke
 }
