@@ -5,6 +5,7 @@ window.addEventListener("load", init);
 // global variables
 var colors;
 //var x, y,dx,dy;
+var balls;
 var xArr,yArr,dxArr,dyArr,colors,ballColors;
 var canvas,context,velocity,radius;
 
@@ -26,6 +27,7 @@ function init(){
     dxArr = [];
     dyArr = []; //set delta arrays
     ballColors = [];
+    balls = [];
 
     createBalls(5);
     animate();      // kick off the animation
