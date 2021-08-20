@@ -31,20 +31,15 @@ class Ball{
   }
 }
 
-// global variables
 var colors,balls,canvas,context,velocity,radius;
 
 function init(){
-    // https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement
-    canvas = document.getElementById("cnv");
-    // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
-    context = canvas.getContext("2d");
 
+    canvas = document.getElementById("cnv");
+    context = canvas.getContext("2d");
     radius = 20;
     velocity = 7;
     colors = ["orange","blue","red","green","yellow"];
-
-    //multiple balls with array
     balls = [];
 
     createBalls(5);
@@ -68,7 +63,7 @@ function createBalls(ballAmount){
 
 }
 function randomVal(value){
-  return Math.floor((value-1)*Math.random())+value/2;
+    return Math.floor((value-1)*Math.random())+value/2;
 }
 // every animation cycle
 function animate() {
@@ -77,7 +72,6 @@ function animate() {
     update();   // update location   // render
     requestAnimationFrame(animate); // next cycle
 }
-
 // move the circle to a new location
 function update() {
     for(var i = 0;i<balls.length;i++){
